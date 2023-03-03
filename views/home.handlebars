@@ -1,0 +1,21 @@
+ 
+<div class="container">
+    <h1 class="display-5" style="margin:20px;font-weight:600">Usuários cadastrados</h1>
+    <div class="users" style="display:flex;flex-wrap: wrap;">
+        {{#each users}}
+            <div class="card text-bg-dark" style="width: 18rem;margin:20px;width:20%">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">Profissão: {{this.occupation}}</p>
+                <div class="action" style="display: flex;flex-direction: row;flex-wrap: wrap;">
+                    <a href="/users/{{this.id}}" class="btn btn-primary" style="width:100%;margin:5px">Ver detalhes</a>
+                    <form action="/users/delete/{{this.id}}" style="width: 48%;margin:1%" method="post">
+                        <input type="submit" value="Excluir" style="width: 100%" class="btn btn-danger">
+                    </form>
+                    <a href="/users/edit/{{this.id}}" class="btn btn-success" style="width: 48%;margin:1%">Editar</a>
+                </div>
+            </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<form action="/users/create" method="post">
+
+    <input type="hidden" name="id" value="{{user.id}}">
+
+    <div class="user" style="display: flex;justify-content:center">
+        <div class="card text-bg-dark" style="margin: 20px;width:70%;">
+            <div class="card-header"><h1>Alteração de login</h1></div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" value="{{user.name}}" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Profissão</label>
+                    <input type="text" class="form-control" value="{{user.occupation}}" name="occupation">
+                </div>
+                <div class="mb-3 form-check">
+                    {{#if user.newsletter}}
+                        <input type="checkbox" class="form-check-input" name="newsletter" checked>
+                    {{else}}
+                        <input type="checkbox" class="form-check-input" name="newsletter">
+                    {{/if}}
+                    <label class="form-check-label" for="newsletter">Enviar promoções?</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+        </div>
+    </div>
+
+</form>
