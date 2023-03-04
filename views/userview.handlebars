@@ -2,9 +2,8 @@
     <div class="card text-bg-dark" style="margin: 20px;width:70%;">
     <div class="card-header" style="display:flex;align-items: center;"><a href="/"><i class="fa-sharp fa-solid fa-arrow-left" style="margin-right:50px"></i></a><span class="display-6" style="text-align:center">{{user.name}}</span></div>
     <div class="card-body">
-        <h5 class="card-title">Profissão: {{user.occupation}}</h5>
-        <p class="card-text"></p>
+        <h5 class="card-text">Profissão: {{user.occupation}}</h5>
+        <h5 class="card-text">Enviar promoções: {{#if user.newsletter}}SIM{{else}}NÃO{{/if}}</h5>
     </div>
     </div>
 </div> 
-

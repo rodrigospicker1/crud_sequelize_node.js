@@ -1,9 +1,10 @@
-<form action="/users/create" method="post">
+<div class="content"  style="display: flex;flex-wrap:wrap;width:100%">
+<form action="/users/update" method="post" style="width:50%">
 
     <input type="hidden" name="id" value="{{user.id}}">
 
-    <div class="user" style="display: flex;justify-content:center">
-        <div class="card text-bg-dark" style="margin: 20px;width:70%;">
+    <div class="user">
+        <div class="card text-bg-dark" style="margin: 20px;width:90%;height: 400px;">
             <div class="card-header"><h1>Alteração de login</h1></div>
             <div class="card-body">
                 <div class="mb-3">
@@ -28,3 +29,60 @@
     </div>
 
 </form>
+
+<form action="/address/create" method="post" style="width:50%">
+
+    <input type="hidden" name="UserId" value="{{user.id}}">
+
+    <div>
+        <div class="card text-bg-dark" style="margin: 20px;width:90%;">
+            <div class="card-header"><h1>Adicionar endereço</h1></div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="street" class="form-label">Rua</label>
+                    <input type="text" class="form-control" placeholder="Digite a rua" name="street">
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Número</label>
+                    <input type="text" class="form-control" placeholder="Digite o número" name="number">
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" placeholder="Digite o número" name="city">
+                </div>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<h1 style="margin-left: 1%;">Endereço cadastrados</h1>
+<table class="table table-dark table-hover " style="width: 95%;margin-left: 1%;">
+      <thead>
+    <tr>
+      <th scope="col">Rua</th>
+      <th scope="col">Número</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    {{#each user.Addresses}}
+        <tr>
+            <th scope="col">{{this.street}}</th>
+            <th scope="col">{{this.number}}</th>
+            <th scope="col">{{this.city}}</th>
+            <th scope="col">
+                <form action="/address/delete" method="POST">
+                    <input type="hidden" name="UserId" value="{{this.UserId}}">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="submit" class="btn btn-sm btn-danger" value="Excluir">
+                </form>
+            </th>
+        </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</div>
